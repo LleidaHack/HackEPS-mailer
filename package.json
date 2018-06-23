@@ -1,0 +1,23 @@
+{
+  "name": "hackeps-mailer",
+  "version": "1.0.0",
+  "description": "Node server to send mails to hackeps users",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LleidaHack/HackEPS-mailer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LleidaHack/HackEPS-mailer/issues"
+  },
+  "homepage": "https://github.com/LleidaHack/HackEPS-mailer#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "googleapis": "^27.0.0"
+  }
+}
