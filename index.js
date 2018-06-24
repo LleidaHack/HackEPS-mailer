@@ -11,7 +11,7 @@ function appendData(auth) {
     valueInputOption: 'RAW',
     insertDataOption: 'INSERT_ROWS',
     resource: {
-      values: [ ["Void", "Canvas", "Website"], ["Paul", "Shan", "Human"] ]
+      values: [["oda@gmail.com"]]
     }
   }, (err, response) => {
     if (err) {
