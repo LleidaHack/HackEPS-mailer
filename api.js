@@ -1,15 +1,15 @@
-import fs from 'fs';
-import path from 'path';
-import promisify from 'es6-promisify';
-import readline from 'readline';
-import GoogleAuth from 'google-auth-library';
+const fs = require('fs');
+const path = require('path');
+const promisify = require('es6-promisify');
+const readline = require('readline');
+const GoogleAuth = require('google-auth-library');
 
 const credentialsPath = path.join(__dirname, '.credentials');
 const credentialsFile = path.join(credentialsPath, 'client_secret.json');
 const tokenFile = path.join(credentialsPath, 'token.json');
 
 
-export const getClient = async () => {
+const getClient = async () => {
   const credentials = require(credentialsPath);
 
   const {
@@ -75,4 +75,8 @@ const getNewToken = async client => {
   console.log(`\nNew auth token has been saved to disk.`);
 
   return token;
+}
+
+module.exports = {
+  getClient : 'api'
 }
