@@ -1,8 +1,11 @@
 let google = require('googleapis');
 let authentication = require("./authentication");
 
+var express = require('express');
+var app = express();
 
-function appendData(auth) {
+
+function appendData(auth, email) {
   var sheets = google.sheets('v4');
   sheets.spreadsheets.values.append({
     auth: auth,
@@ -11,7 +14,7 @@ function appendData(auth) {
     valueInputOption: 'RAW',
     insertDataOption: 'INSERT_ROWS',
     resource: {
-      values: [["oda@gmail.com"]]
+      values: [[email]]
     }
   }, (err, response) => {
     if (err) {
@@ -23,6 +26,14 @@ function appendData(auth) {
   });
 }
 
-authentication.authenticate().then((auth)=>{
-    appendData(auth);
+
+
+app.get('/:email', function(req, res){
+  authentication.authenticate().then((auth)=>{
+    appendData(auth, req.params.email);
+  });
+});
+
+app.listen(process.env.PORT || 8000, function() {
+	console.log('Server ON');
 });
